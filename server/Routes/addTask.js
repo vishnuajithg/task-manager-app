@@ -21,7 +21,7 @@ router.post('/addTask', async (req, res) => {
 
 router.get('/viewTask', async (req, res) => {
     try {
-        const tasks = await task.find();
+        const tasks = await Task.find();
         res.json(tasks);
     } catch (err) {
         res.status(500).json({ message: err.message });

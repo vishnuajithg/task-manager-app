@@ -13,6 +13,7 @@ const ViewTask = () => {
             if (response.ok) {
               const data = await response.json();
               setTasks(data);
+              console.log(data);
             } else {
               console.error("Failed to fetch tasks");
             }
@@ -26,7 +27,25 @@ const ViewTask = () => {
 
   return (
     <>
-   view task
+       view task ! 
+       <table>
+        <tr>
+            <td>title</td>
+            <td>description</td>
+            <td>status</td>
+            <td>priority</td>
+        </tr>
+        {
+            tasks.map((task) => (
+                <tr key={task._id}>
+                    <td>{task.title}</td>
+                    <td>{task.description}</td>
+                    <td>{task.status}</td>
+                    <td>{task.priority}</td>
+                </tr>
+            ))
+        }
+       </table>
     </>
   )
 }
