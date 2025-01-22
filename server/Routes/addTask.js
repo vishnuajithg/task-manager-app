@@ -28,4 +28,21 @@ router.get('/viewTask', async (req, res) => {
     }
 });
 
+router.post('/view/DeleteTask', async (req, res) => {
+    try {
+        const {id} = req.body;
+        console.log(req.body);
+        const task = new Task({
+            title,
+            description,
+            status,
+            priority
+        });
+        await task.save();
+        res.json(task);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;
